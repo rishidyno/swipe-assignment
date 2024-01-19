@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">swipe-android-assignment</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="add_a_product">Add a product</string>
+    <string name="add_product">Add Product</string>
+    <string name="product_image_url">Product Image URL</string>
+    <string name="product_tax">Product Tax</string>
+    <string name="product_price">Product Price</string>
+    <string name="product_type">Product Type</string>
+    <string name="product_name">Product Name</string>
+    <string name="no_internet_access_avaiable">No Internet Access Avaiable...</string>
+</resources>
