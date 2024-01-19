@@ -30,10 +30,6 @@ class ProductsFragment : Fragment() {
 
     private lateinit var connectivityObserver: ConnectivityObserver
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -76,18 +72,9 @@ class ProductsFragment : Fragment() {
         }
 
         connectivityObserver = NetworkConnectivityObserver(requireContext())
-//        connectivityObserver.observe().run {
-//            this.onEach {
-//                Log.i("tag", it.toString())
-//                println(it)
-//                requireActivity().runOnUiThread {
-//                    fragmentProductsBinding.noInternetText.text = "hello"
-//                }
-//            }
-//        }
+
         connectivityObserver.observe().onEach {
             Log.i("tag", it.toString())
-//            println(it)
             requireActivity().runOnUiThread {
                 val networkStatus = "Network Status:  $it"
                 fragmentProductsBinding.noInternetText.text = networkStatus

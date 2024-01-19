@@ -9,7 +9,10 @@ import com.rishi.swipe.assignment.model.entity.ProductEntity
 import com.rishi.swipe.assignment.model.mappers.toProductEntity
 import com.rishi.swipe.assignment.model.network.NetworkRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
@@ -37,6 +40,12 @@ class AppViewModel @Inject constructor(
         _isLoading.postValue(true)
         withContext(Dispatchers.IO) {
             val allProducts = networkRepository.getAllProducts()
+
+            databaseRepository.getAllCachedProductsFromDatBase().onEach {
+
+            }
+
+
             allProducts.getOrNull()?.let {
                 _product.postValue(it)
                 val productEntityList= it.map {
